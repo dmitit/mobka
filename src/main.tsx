@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
+import "./styles/index.css";
 import MainLayout from "./MainLayout.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import PageNotFound from "./pages/PageNotFound.tsx";
