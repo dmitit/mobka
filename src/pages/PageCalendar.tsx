@@ -1,8 +1,12 @@
+import CoreContainer from "@/components/main/CoreContainer";
+
 function PageCalendar() {
    return (
       <>
          <div>
-            <h1 className="text-[3rem]">calendar</h1>
+            <CoreContainer>
+               <h1 className="text-[3rem]">calendar</h1>
+            </CoreContainer>
          </div>
       </>
    );

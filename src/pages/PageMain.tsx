@@ -1,8 +1,12 @@
+import CoreContainer from "@/components/main/CoreContainer";
+
 function PageMain() {
    return (
       <>
          <div>
-            <h1 className="text-[3rem]">main</h1>
+            <CoreContainer>
+               <h1 className="text-[3rem]">main</h1>
+            </CoreContainer>
          </div>
       </>
    );

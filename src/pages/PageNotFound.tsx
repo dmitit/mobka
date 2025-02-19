@@ -1,8 +1,12 @@
+import CoreContainer from "@/components/main/CoreContainer";
+
 function PageNotFound() {
    return (
       <>
          <div>
-            <h1 className="text-[3rem]">error 404</h1>
+            <CoreContainer>
+               <h1 className="text-[3rem]">error 404</h1>
+            </CoreContainer>
          </div>
       </>
    );
