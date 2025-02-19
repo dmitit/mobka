@@ -5,3 +5,11 @@
       --radius: 0.5rem;
    }
 }
+
+html {
+   font-size: 62.5%;
+}
+
+body {
+   font-size: 1.6rem;
+}
