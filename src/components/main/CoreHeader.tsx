@@ -3,12 +3,12 @@ import CoreContainer from "./CoreContainer";
 
 function CoreHeader() {
    return (
-      <header className="bg-black py-[1rem]">
+      <header className="bg-black py-[0.6rem]">
          <CoreContainer>
             <div className="max-w-[1600px] mx-auto">
                <Link
                   to={"/"}
-                  className="text-white text-[3rem] group transition-[color] duration-300 font-medium"
+                  className="text-white text-[2rem] group transition-[color] duration-300 font-medium"
                >
                   мобка
                </Link>
