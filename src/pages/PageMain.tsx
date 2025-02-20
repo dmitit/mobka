@@ -1,6 +1,6 @@
 import { increment } from "@/app/store/counterSlice";
 import CoreContainer from "@/components/main/CoreContainer";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/ui/button";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import React from "react";
