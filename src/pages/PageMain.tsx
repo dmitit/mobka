@@ -1,5 +1,5 @@
 import CoreContainer from "@/shared/ui/CoreContainer";
-import { Button } from "@/shared/ui/vendor/button";
+import { Button } from "@/shared/ui/shadcn/button";
 
 function PageMain() {
    return (

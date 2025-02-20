@@ -7,7 +7,7 @@ import {
    SheetHeader,
    SheetTitle,
    SheetTrigger,
-} from "./vendor/sheet";
+} from "@/shared/ui/shadcn/sheet";
 import {
    Dialog,
    DialogContent,
@@ -15,7 +15,7 @@ import {
    DialogHeader,
    DialogTitle,
    DialogTrigger,
-} from "./vendor/dialog";
+} from "@/shared/ui/shadcn/dialog";
 import { useState } from "react";
 
 function CoreHeader() {
