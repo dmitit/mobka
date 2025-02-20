@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap");
 
+@plugin "tailwindcss-animate";
 @import "tailwindcss";
 
 @layer base {
@@ -9,7 +10,6 @@
 }
 
 @theme {
-   /* Radius */
    --radius-lg: var(--radius);
    --radius-md: calc(var(--radius) - 2px);
    --radius-sm: calc(var(--radius) - 4px);

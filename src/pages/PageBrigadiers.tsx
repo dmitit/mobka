@@ -1,15 +1,15 @@
 import CoreContainer from "@/shared/ui/CoreContainer";
 
-function PageCalendar() {
+function PageBrigadiers() {
    return (
       <>
          <div>
             <CoreContainer>
-               <h1 className="text-[3rem]">calendar</h1>
+               <h1>test</h1>
             </CoreContainer>
          </div>
       </>
    );
 }
 
-export default PageCalendar;
+export default PageBrigadiers;

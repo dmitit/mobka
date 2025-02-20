@@ -1,5 +1,5 @@
 import MainLayout from "@/MainLayout";
-import PageCalendar from "@/pages/PageCalendar";
+import PageBrigadiers from "@/pages/PageBrigadiers";
 import PageMain from "@/pages/PageMain";
 import PageNotFound from "@/pages/PageNotFound";
 import { createBrowserRouter } from "react-router";
@@ -11,7 +11,7 @@ export const router = createBrowserRouter(
          element: <MainLayout />,
          children: [
             { path: "/", element: <PageMain /> },
-            { path: "/calendar", element: <PageCalendar /> },
+            { path: "/brigadiers", element: <PageBrigadiers /> },
             { path: "*", element: <PageNotFound /> },
          ],
       },
