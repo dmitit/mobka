@@ -1,5 +1,5 @@
-import CoreHeader from "./components/main/CoreHeader";
-import CoreFooter from "./components/main/CoreFooter";
+import CoreHeader from "@/shared/ui/CoreHeader";
+import CoreFooter from "@/shared/ui/CoreFooter";
 import { Outlet } from "react-router";
 
 function MainLayout() {
