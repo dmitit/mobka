@@ -1,4 +1,4 @@
-import CoreContainer from "@/components/main/CoreContainer";
+import CoreContainer from "@/shared/ui/CoreContainer";
 
 function PageCalendar() {
    return (

@@ -1,5 +1,5 @@
 import { increment } from "@/app/store/counterSlice";
-import CoreContainer from "@/components/main/CoreContainer";
+import CoreContainer from "@/shared/ui/CoreContainer";
 import { Button } from "@/shared/ui/button";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
