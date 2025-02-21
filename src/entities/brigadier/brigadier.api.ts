@@ -1,7 +1,7 @@
 import { db } from "@/shared/api/db";
-import { Brigadier } from "./brigadier.model";
+import { BrigadierTable } from "./brigadier.types";
 
-export const getBrigadiers = async (): Promise<Brigadier[]> => {
+export const getBrigadiers = async (): Promise<BrigadierTable[]> => {
    return db.brigadiers.toArray();
 };
 

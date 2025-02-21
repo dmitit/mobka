@@ -5,6 +5,7 @@ import {
    getBrigadiers,
    removeBrigadierById,
 } from "./brigadier.api";
+import { Brigadier } from "./brigadier.model";
 
 const initialState: BrigadierSchema = {
    data: [],
@@ -14,7 +15,7 @@ const initialState: BrigadierSchema = {
 
 export const createBrigadierAsync = createAsyncThunk(
    "brigadiers/add",
-   async (fullname: string) => {
+   async (fullname: string): Promise<Brigadier> => {
       const id = await addBrigadier(fullname);
 
       return { id, fullname };
@@ -23,14 +24,14 @@ export const createBrigadierAsync = createAsyncThunk(
 
 export const fetchBrigadiersAsync = createAsyncThunk(
    "brigadiers/fetch",
-   async () => {
+   async (): Promise<Brigadier[]> => {
       return await getBrigadiers();
    },
 );
 
 export const deleteBrigadierAsync = createAsyncThunk(
    "brigadiers/remove",
-   async (id: number) => {
+   async (id: number): Promise<number> => {
       await removeBrigadierById(id);
       return id;
    },
