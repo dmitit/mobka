@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import eventReducer from "@/entities/event/slice";
+import brigadierReducer from "@/entities/brigadier/brigadier.slice";
 
 const store = configureStore({
    reducer: {
       events: eventReducer,
+      brigadiers: brigadierReducer,
    },
 });
 

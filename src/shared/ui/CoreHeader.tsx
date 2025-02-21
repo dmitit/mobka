@@ -4,6 +4,7 @@ import { Menu, Settings } from "lucide-react";
 import {
    Sheet,
    SheetContent,
+   SheetDescription,
    SheetHeader,
    SheetTitle,
    SheetTrigger,
@@ -39,6 +40,7 @@ function CoreHeader() {
                      <SheetContent className="max-w-52 pt-8">
                         <SheetHeader className="space-y-4">
                            <SheetTitle>Меню</SheetTitle>
+                           <SheetDescription />
                         </SheetHeader>
                         <nav className="flex flex-col gap-3 mt-4">
                            <Link to="/" onClick={() => setIsOpen(false)}>

@@ -4,7 +4,7 @@ import "@/app/index.css";
 import AppProviders from "./app/providers";
 
 createRoot(document.getElementById("root")!).render(
-   <React.StrictMode>
-      <AppProviders></AppProviders>
-   </React.StrictMode>,
+   // <React.StrictMode>
+   <AppProviders></AppProviders>,
+   // </React.StrictMode>,
 );
