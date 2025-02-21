@@ -14,11 +14,9 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
 function BrigadierTable() {
    const dispatch = useAppDispatch();
    const { data } = useAppSelector((state) => state.brigadiers);
-   console.log("rerender");
 
    useEffect(() => {
       dispatch(fetchBrigadiersAsync());
-      console.log("dispatch");
    }, [dispatch]);
 
    return (
