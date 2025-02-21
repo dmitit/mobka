@@ -1,12 +1,15 @@
 import { db } from "@/shared/api/db";
-import { BrigadierTable } from "./brigadier.types";
+import { Brigadier } from "./brigadier.model";
+import { BrigadierInput } from "./brigadier.types";
 
-export const getBrigadiers = async (): Promise<BrigadierTable[]> => {
+export const getBrigadiers = async (): Promise<Brigadier[]> => {
    return db.brigadiers.toArray();
 };
 
-export const addBrigadier = async (fullname: string): Promise<number> => {
-   return db.brigadiers.add({ fullname });
+export const addBrigadier = async (
+   brigadier: BrigadierInput,
+): Promise<number> => {
+   return db.brigadiers.add(brigadier);
 };
 
 export const removeBrigadierById = async (id: number): Promise<void> => {

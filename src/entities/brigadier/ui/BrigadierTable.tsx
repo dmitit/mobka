@@ -10,10 +10,11 @@ import { useEffect } from "react";
 import { fetchBrigadiersAsync } from "../brigadier.slice";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import { selectBrigadiers } from "../brigadier.selectors";
 
 function BrigadierTable() {
    const dispatch = useAppDispatch();
-   const { data } = useAppSelector((state) => state.brigadiers);
+   const brigadiers = useAppSelector(selectBrigadiers);
 
    useEffect(() => {
       dispatch(fetchBrigadiersAsync());
@@ -31,7 +32,7 @@ function BrigadierTable() {
                   </TableRow>
                </TableHeader>
                <TableBody>
-                  {data.map((brigadier, index) => (
+                  {brigadiers.map((brigadier, index) => (
                      <BrigadierRow
                         key={brigadier.id}
                         brigadier={brigadier}

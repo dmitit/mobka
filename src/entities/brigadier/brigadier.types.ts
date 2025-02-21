@@ -5,6 +5,8 @@ export interface BrigadierTable {
    fullname: string;
 }
 
+export type BrigadierInput = Omit<BrigadierTable, "id">;
+
 export interface BrigadierSchema {
    data: Brigadier[];
    isLoading: boolean;

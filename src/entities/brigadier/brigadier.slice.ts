@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BrigadierSchema } from "./brigadier.types";
+import { BrigadierInput, BrigadierSchema } from "./brigadier.types";
 import {
    addBrigadier,
    getBrigadiers,
@@ -15,10 +15,10 @@ const initialState: BrigadierSchema = {
 
 export const createBrigadierAsync = createAsyncThunk(
    "brigadiers/add",
-   async (fullname: string): Promise<Brigadier> => {
-      const id = await addBrigadier(fullname);
+   async (brigadier: BrigadierInput): Promise<Brigadier> => {
+      const id = await addBrigadier(brigadier);
 
-      return { id, fullname };
+      return { id, ...brigadier };
    },
 );
 

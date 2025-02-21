@@ -20,7 +20,7 @@ function BrigadierAddDrawer() {
    const dispatch = useAppDispatch();
 
    async function handleAddBrigadier() {
-      dispatch(createBrigadierAsync(fullname));
+      dispatch(createBrigadierAsync({ fullname }));
       setFullname("");
       setOpen(false);
       dispatch(fetchBrigadiersAsync());
