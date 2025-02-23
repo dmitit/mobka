@@ -53,10 +53,10 @@ function CoreHeader() {
                               Бригадиры
                            </Link>
                            <Link
-                              to="/payments"
+                              to="/salaries"
                               onClick={() => setIsOpen(false)}
                            >
-                              Выплаты
+                              Зарплаты
                            </Link>
                         </nav>
                      </SheetContent>
