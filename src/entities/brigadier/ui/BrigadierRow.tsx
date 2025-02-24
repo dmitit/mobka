@@ -3,6 +3,7 @@ import { Brigadier } from "../brigadier.model";
 import { Button } from "@/shared/ui/shadcn/button";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { deleteBrigadierAsync } from "../brigadier.slice";
+import { Trash2 } from "lucide-react";
 
 function BrigadierRow({
    brigadier,
@@ -24,10 +25,10 @@ function BrigadierRow({
          <TableCell>
             <Button
                onClick={handleDeleteBrigadier}
-               className="px-3 py-0.5"
+               className="px-2 py-1 h-auto text-xs"
                variant={"destructive"}
             >
-               Удалить
+               <Trash2 />
             </Button>
          </TableCell>
       </TableRow>

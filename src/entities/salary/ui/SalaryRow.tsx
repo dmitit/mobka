@@ -4,6 +4,7 @@ import { TableCell, TableRow } from "@/shared/ui/shadcn/table";
 import { Button } from "@/shared/ui/shadcn/button";
 import { deleteSalaryAsync } from "../salary.slice";
 import { format } from "date-fns";
+import { Trash2 } from "lucide-react";
 
 function SalaryRow({ salary, index }: { salary: Salary; index: number }) {
    const dispatch = useAppDispatch();
@@ -23,10 +24,10 @@ function SalaryRow({ salary, index }: { salary: Salary; index: number }) {
          <TableCell>
             <Button
                onClick={handleDeleteSalary}
-               className="px-3 py-0.5"
+               className="px-2 py-1 h-auto text-xs"
                variant={"destructive"}
             >
-               Удалить
+               <Trash2 />
             </Button>
          </TableCell>
       </TableRow>

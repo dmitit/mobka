@@ -28,7 +28,7 @@ function BrigadierTable() {
                   <TableRow>
                      <TableHead>ID</TableHead>
                      <TableHead className="w-full">ФИО</TableHead>
-                     <TableHead>Действия</TableHead>
+                     <TableHead></TableHead>
                   </TableRow>
                </TableHeader>
                <TableBody>
