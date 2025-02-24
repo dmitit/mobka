@@ -6,21 +6,16 @@ import {
    PopoverTrigger,
 } from "@/shared/ui/shadcn/popover";
 import { CalendarIcon } from "lucide-react";
+import { Calendar } from "@/shared/ui/shadcn/calendar";
 import { useState } from "react";
 import { format } from "date-fns";
-import { Calendar } from "@/shared/ui/shadcn/calendar";
 
-function SalaryAddFormDatePicker({
-   date,
-   onSelect,
-}: {
-   date?: Date;
-   onSelect: (day?: Date) => void;
-}) {
+function EventAddFormDateTimePicker() {
    const [open, setOpen] = useState<boolean>(false);
+   const [date, setDate] = useState<Date | undefined>(new Date());
 
    function handleDateSelect(date?: Date) {
-      onSelect(date);
+      setDate(date);
       if (date) setOpen(false);
    }
 
@@ -49,4 +44,4 @@ function SalaryAddFormDatePicker({
    );
 }
 
-export default SalaryAddFormDatePicker;
+export default EventAddFormDateTimePicker;

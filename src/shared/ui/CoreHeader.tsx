@@ -52,6 +52,9 @@ function CoreHeader() {
                            >
                               Бригадиры
                            </Link>
+                           <Link to="/events" onClick={() => setIsOpen(false)}>
+                              Мероприятия
+                           </Link>
                            <Link
                               to="/salaries"
                               onClick={() => setIsOpen(false)}

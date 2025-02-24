@@ -3,13 +3,13 @@ import { Brigadier } from "./brigadier.model";
 import { BrigadierInput } from "./brigadier.types";
 
 export const getBrigadiers = async (): Promise<Brigadier[]> => {
-   return db.brigadiers.toArray();
+   return await db.brigadiers.toArray();
 };
 
 export const addBrigadier = async (
    brigadier: BrigadierInput,
 ): Promise<number> => {
-   return db.brigadiers.add(brigadier);
+   return await db.brigadiers.add(brigadier);
 };
 
 export const removeBrigadierById = async (id: number): Promise<void> => {
