@@ -1,5 +1,5 @@
 import CoreHeader from "@/shared/ui/CoreHeader";
-import CoreFooter from "@/shared/ui/CoreFooter";
+// import CoreFooter from "@/shared/ui/CoreFooter";
 import { Outlet } from "react-router";
 
 function MainLayout() {
@@ -9,7 +9,7 @@ function MainLayout() {
          <main>
             <Outlet />
          </main>
-         <CoreFooter />
+         {/* <CoreFooter /> */}
       </>
    );
 }

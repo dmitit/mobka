@@ -7,16 +7,39 @@ import {
 } from "@/shared/ui/shadcn/popover";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/shared/ui/shadcn/calendar";
-import { useState } from "react";
+import React, { useState } from "react";
 import { format } from "date-fns";
+import { Input } from "@/shared/ui/shadcn/input";
+import { ru } from "date-fns/locale";
 
-function EventAddFormDateTimePicker() {
+function EventAddFormDateTimePicker({
+   date,
+   onSelect,
+}: {
+   date?: Date;
+   onSelect: (day?: Date) => void;
+}) {
    const [open, setOpen] = useState<boolean>(false);
-   const [date, setDate] = useState<Date | undefined>(new Date());
 
    function handleDateSelect(date?: Date) {
-      setDate(date);
-      if (date) setOpen(false);
+      onSelect(date);
+   }
+
+   function handleTimeChange(e: React.ChangeEvent<HTMLInputElement>) {
+      if (!date) return;
+      const datetime = e.target.value;
+
+      const [hours, minutes] = datetime.split(":").map(Number);
+      const newDate = new Date(date);
+      newDate.setHours(hours);
+      newDate.setMinutes(minutes);
+      onSelect(newDate);
+   }
+
+   function handleSubmit() {
+      if (!date) return;
+
+      setOpen(false);
    }
 
    return (
@@ -30,15 +53,30 @@ function EventAddFormDateTimePicker() {
                )}
             >
                <CalendarIcon />
-               {date ? format(date, "PPP") : <span>Pick a date</span>}
+               {date ? (
+                  format(date, "dd.MM.yyyy HH:mm")
+               ) : (
+                  <span>Pick a date</span>
+               )}
             </Button>
          </PopoverTrigger>
          <PopoverContent className="w-auto p-0" align="start">
-            <Calendar
-               mode="single"
-               selected={date}
-               onSelect={handleDateSelect}
-            />
+            <div className="flex flex-col gap-2 p-3">
+               <Calendar
+                  mode="single"
+                  selected={date}
+                  onSelect={handleDateSelect}
+               />
+               <div className="flex items-center gap-2">
+                  <Input
+                     type="time"
+                     value={date ? format(date, "HH:mm", { locale: ru }) : ""}
+                     onChange={handleTimeChange}
+                     disabled={!date}
+                  />
+               </div>
+               <Button onClick={handleSubmit}>Применить</Button>
+            </div>
          </PopoverContent>
       </Popover>
    );

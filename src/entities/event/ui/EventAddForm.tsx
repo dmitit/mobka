@@ -26,18 +26,27 @@ function EventAddForm() {
    const [location, setLocation] = useState<string>("");
    const [quota, setQuota] = useState<string>("");
    const [description, setDescription] = useState<string>("");
-
-   const mockEvent: EventInput = {
-      title: "Возложение",
-      description: null,
-      location: "ул. Ленина, д. 25",
-      quota: 10,
-      start_datetime: new Date().toISOString(),
-      end_datetime: new Date().toISOString(),
-   };
+   const [startDatetime, setStartDatetime] = useState<Date | undefined>(
+      new Date(),
+   );
+   const [endDatetime, setEndDatetime] = useState<Date | undefined>(new Date());
 
    function handleAddEvent() {
-      dispatch(createEventAsync(mockEvent));
+      if (!title || !location || !quota || !startDatetime || !endDatetime)
+         return;
+
+      const newEvent: EventInput = {
+         title: title,
+         description: description,
+         location: location,
+         quota: Number(quota),
+         start_datetime: startDatetime.toISOString(),
+         end_datetime: endDatetime.toISOString(),
+      };
+
+      console.log(newEvent);
+
+      dispatch(createEventAsync(newEvent));
       setOpen(false);
    }
 
@@ -71,20 +80,31 @@ function EventAddForm() {
                         type="text"
                      />
                   </div>
+
                   <div className="grid grid-cols-2 gap-x-5">
                      <div className="text-start grid w-full gap-1.5">
-                        <Label htmlFor="event-quota">Квота*</Label>
-                        <Input
-                           placeholder="Квота"
-                           value={quota}
-                           onChange={(e) => setQuota(e.target.value)}
-                           type="number"
+                        <Label htmlFor="event-quota">Время начала*</Label>
+                        <EventAddFormDateTimePicker
+                           date={startDatetime}
+                           onSelect={setStartDatetime}
                         />
                      </div>
                      <div className="text-start grid w-full gap-1.5">
-                        <Label htmlFor="event-quota">Время начала*</Label>
-                        <EventAddFormDateTimePicker />
+                        <Label htmlFor="event-quota">Время окончания*</Label>
+                        <EventAddFormDateTimePicker
+                           date={endDatetime}
+                           onSelect={setEndDatetime}
+                        />
                      </div>
+                  </div>
+                  <div className="text-start grid w-full gap-1.5">
+                     <Label htmlFor="event-quota">Квота*</Label>
+                     <Input
+                        placeholder="Квота"
+                        value={quota}
+                        onChange={(e) => setQuota(e.target.value)}
+                        type="number"
+                     />
                   </div>
                   <div className="text-start grid w-full gap-1.5">
                      <Label htmlFor="event-description">Описание</Label>

@@ -31,8 +31,8 @@ function SalaryAddForm() {
       if (!selectedDate || !selectedBrigadier) return;
 
       const newSalary: SalaryInput = {
-         date: selectedDate?.toISOString(),
-         id_brigadier: selectedBrigadier?.id,
+         date: selectedDate.toISOString(),
+         id_brigadier: selectedBrigadier.id,
          amount: Number(amount),
       };
 

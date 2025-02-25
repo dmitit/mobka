@@ -28,7 +28,7 @@ function SalaryTable() {
                   <TableRow>
                      <TableHead>ID</TableHead>
                      <TableHead>Дата</TableHead>
-                     <TableHead>Бригадир</TableHead>
+                     <TableHead>Координатор</TableHead>
                      <TableHead>Сумма</TableHead>
                      <TableHead></TableHead>
                   </TableRow>

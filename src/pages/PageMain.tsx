@@ -1,12 +1,11 @@
 import CoreContainer from "@/shared/ui/CoreContainer";
-import { Button } from "@/shared/ui/shadcn/button";
 
 function PageMain() {
    return (
       <>
          <div>
             <CoreContainer>
-               <Button>increment</Button>
+               <h1>Главная</h1>
             </CoreContainer>
          </div>
       </>

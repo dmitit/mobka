@@ -33,7 +33,7 @@ function BrigadierAddDrawer() {
          </DrawerTrigger>
          <DrawerContent>
             <DrawerHeader>
-               <DrawerTitle>Добавить бригадира</DrawerTitle>
+               <DrawerTitle>Добавить координатора</DrawerTitle>
                <DrawerDescription />
                <Input
                   className="mt-2"
