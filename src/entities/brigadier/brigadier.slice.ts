@@ -12,7 +12,6 @@ import { selectSalariesByBrigadierId } from "../salary/salary.selectors";
 const initialState: BrigadierSchema = {
    data: [],
    isLoading: false,
-   error: null,
 };
 
 export const createBrigadierAsync = createAsyncThunk(

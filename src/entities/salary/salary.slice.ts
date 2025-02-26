@@ -8,7 +8,6 @@ import { RootState } from "@/app/store";
 const initialState: SalarySchema = {
    data: [],
    isLoading: false,
-   error: null,
 };
 
 export const createSalaryAsync = createAsyncThunk(

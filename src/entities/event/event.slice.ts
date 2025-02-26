@@ -6,7 +6,6 @@ import { Event } from "./event.model";
 const initialState: EventSchema = {
    data: [],
    isLoading: false,
-   error: null,
 };
 
 export const createEventAsync = createAsyncThunk(

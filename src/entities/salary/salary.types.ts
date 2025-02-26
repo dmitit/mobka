@@ -12,5 +12,4 @@ export type SalaryInput = Omit<SalaryTable, "id">;
 export interface SalarySchema {
    data: Salary[];
    isLoading: boolean;
-   error: string | null;
 }

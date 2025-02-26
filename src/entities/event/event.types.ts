@@ -15,5 +15,4 @@ export type EventInput = Omit<EventTable, "id">;
 export interface EventSchema {
    data: Event[];
    isLoading: boolean;
-   error: string | null;
 }

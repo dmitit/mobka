@@ -10,5 +10,4 @@ export type BrigadierInput = Omit<BrigadierTable, "id">;
 export interface BrigadierSchema {
    data: Brigadier[];
    isLoading: boolean;
-   error: string | null;
 }
