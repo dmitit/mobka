@@ -19,7 +19,7 @@ function BrigadierRow({
       try {
          await dispatch(deleteBrigadierAsync(brigadier.id)).unwrap();
          toast.success("Бригадир удален");
-      } catch (error) {
+      } catch (error: unknown) {
          if (typeof error === "string") {
             toast.error(error);
          } else {

@@ -35,13 +35,22 @@ export const fetchSalariesAsync = createAsyncThunk(
    },
 );
 
-export const deleteSalaryAsync = createAsyncThunk(
-   "salaries/remove",
-   async (id: number): Promise<number> => {
+export const deleteSalaryAsync = createAsyncThunk<
+   number,
+   number,
+   { rejectValue: string }
+>("salaries/remove", async (id, { rejectWithValue }) => {
+   try {
       await removeSalaryById(id);
       return id;
-   },
-);
+   } catch (error: unknown) {
+      if (error instanceof Error) {
+         return rejectWithValue(error.message);
+      } else {
+         return rejectWithValue("Ошибка сервера при удалении бригадира");
+      }
+   }
+});
 
 const salarySlice = createSlice({
    name: "salaries",

@@ -35,7 +35,7 @@ export const deleteBrigadierAsync = createAsyncThunk<
    number,
    number,
    { state: RootState; rejectValue: string }
->("brigadiers/remove", async (id: number, { getState, rejectWithValue }) => {
+>("brigadiers/remove", async (id, { getState, rejectWithValue }) => {
    const state = getState();
    const salaries = selectSalariesByBrigadierId(state, id);
 

@@ -25,13 +25,22 @@ export const fetchEventsAsync = createAsyncThunk(
    },
 );
 
-export const deleteEventAsync = createAsyncThunk(
-   "events/remove",
-   async (id: number): Promise<number> => {
+export const deleteEventAsync = createAsyncThunk<
+   number,
+   number,
+   { rejectValue: string }
+>("events/remove", async (id, { rejectWithValue }) => {
+   try {
       await removeEventById(id);
       return id;
-   },
-);
+   } catch (error: unknown) {
+      if (error instanceof Error) {
+         return rejectWithValue(error.message);
+      } else {
+         return rejectWithValue("Ошибка сервера при удалении бригадира");
+      }
+   }
+});
 
 const eventSlice = createSlice({
    name: "events",

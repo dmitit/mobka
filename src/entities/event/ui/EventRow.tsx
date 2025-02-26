@@ -8,13 +8,23 @@ import { Drawer, DrawerTrigger } from "@/shared/ui/shadcn/drawer";
 import { useState } from "react";
 import EventCard from "./EventCard";
 import { deleteEventAsync } from "../event.slice";
+import { toast } from "sonner";
 
 function EventRow({ event, index }: { event: Event; index: number }) {
    const dispatch = useAppDispatch();
    const [open, setOpen] = useState<boolean>(false);
 
    async function handleDeleteEvent() {
-      await dispatch(deleteEventAsync(event.id));
+      try {
+         await dispatch(deleteEventAsync(event.id));
+         toast.success("Мероприятие удалено");
+      } catch (error: unknown) {
+         if (typeof error === "string") {
+            toast.error(error);
+         } else {
+            toast.error("Произошла неизвестная ошибка");
+         }
+      }
    }
 
    const period = `${format(event.start_datetime, "d.L.y")}-${format(event.end_datetime, "d.L.y")}`;

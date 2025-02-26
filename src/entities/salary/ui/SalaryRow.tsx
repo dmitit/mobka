@@ -5,12 +5,22 @@ import { Button } from "@/shared/ui/shadcn/button";
 import { deleteSalaryAsync } from "../salary.slice";
 import { format } from "date-fns";
 import { Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
 function SalaryRow({ salary, index }: { salary: Salary; index: number }) {
    const dispatch = useAppDispatch();
 
    async function handleDeleteSalary() {
-      await dispatch(deleteSalaryAsync(salary.id));
+      try {
+         await dispatch(deleteSalaryAsync(salary.id));
+         toast.success("Зарплата удалена");
+      } catch (error: unknown) {
+         if (typeof error === "string") {
+            toast.error(error);
+         } else {
+            toast.error("Произошла неизвестная ошибка");
+         }
+      }
    }
 
    return (
