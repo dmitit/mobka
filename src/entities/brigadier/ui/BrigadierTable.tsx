@@ -6,19 +6,11 @@ import {
    TableRow,
 } from "@/shared/ui/shadcn/table";
 import BrigadierRow from "./BrigadierRow";
-import { useEffect } from "react";
-import { fetchBrigadiersAsync } from "../brigadier.slice";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { selectBrigadiers } from "../brigadier.selectors";
 
 function BrigadierTable() {
-   const dispatch = useAppDispatch();
    const brigadiers = useAppSelector(selectBrigadiers);
-
-   useEffect(() => {
-      dispatch(fetchBrigadiersAsync());
-   }, [dispatch]);
 
    return (
       <>

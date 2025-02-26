@@ -1,8 +1,5 @@
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { selectSalaries } from "../salary.selectors";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { useEffect } from "react";
-import { fetchSalariesAsync } from "../salary.slice";
 import {
    Table,
    TableBody,
@@ -13,12 +10,7 @@ import {
 import SalaryRow from "./SalaryRow";
 
 function SalaryTable() {
-   const dispatch = useAppDispatch();
    const salaries = useAppSelector(selectSalaries);
-
-   useEffect(() => {
-      dispatch(fetchSalariesAsync());
-   }, [dispatch]);
 
    return (
       <>
@@ -28,7 +20,7 @@ function SalaryTable() {
                   <TableRow>
                      <TableHead>ID</TableHead>
                      <TableHead>Дата</TableHead>
-                     <TableHead>Координатор</TableHead>
+                     <TableHead>Бригадир</TableHead>
                      <TableHead>Сумма</TableHead>
                      <TableHead></TableHead>
                   </TableRow>

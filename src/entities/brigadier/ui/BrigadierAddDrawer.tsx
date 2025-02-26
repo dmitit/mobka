@@ -12,7 +12,7 @@ import {
 import { Input } from "@/shared/ui/shadcn/input";
 import { useState } from "react";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { createBrigadierAsync, fetchBrigadiersAsync } from "../brigadier.slice";
+import { createBrigadierAsync } from "../brigadier.slice";
 
 function BrigadierAddDrawer() {
    const [open, setOpen] = useState<boolean>(false);
@@ -23,7 +23,6 @@ function BrigadierAddDrawer() {
       dispatch(createBrigadierAsync({ fullname }));
       setFullname("");
       setOpen(false);
-      dispatch(fetchBrigadiersAsync());
    }
 
    return (
@@ -33,7 +32,7 @@ function BrigadierAddDrawer() {
          </DrawerTrigger>
          <DrawerContent>
             <DrawerHeader>
-               <DrawerTitle>Добавить координатора</DrawerTitle>
+               <DrawerTitle>Добавить бригадира</DrawerTitle>
                <DrawerDescription />
                <Input
                   className="mt-2"

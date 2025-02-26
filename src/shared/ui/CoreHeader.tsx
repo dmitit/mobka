@@ -50,7 +50,7 @@ function CoreHeader() {
                               to="/brigadiers"
                               onClick={() => setIsOpen(false)}
                            >
-                              Координаторы
+                              Бригадиры
                            </Link>
                            <Link to="/events" onClick={() => setIsOpen(false)}>
                               Мероприятия

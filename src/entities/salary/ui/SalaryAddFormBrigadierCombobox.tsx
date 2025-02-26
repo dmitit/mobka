@@ -1,8 +1,6 @@
 import { Brigadier } from "@/entities/brigadier/brigadier.model";
 import { selectBrigadiers } from "@/entities/brigadier/brigadier.selectors";
-import { fetchBrigadiersAsync } from "@/entities/brigadier/brigadier.slice";
 import { cn } from "@/lib/utils";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Button } from "@/shared/ui/shadcn/button";
 import {
@@ -19,7 +17,7 @@ import {
    PopoverTrigger,
 } from "@/shared/ui/shadcn/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function SalaryAddFormBrigadierCombobox({
    onSelect,
@@ -28,7 +26,6 @@ function SalaryAddFormBrigadierCombobox({
    onSelect: (brigadier: Brigadier) => void;
    brigadier: Brigadier | null;
 }) {
-   const dispatch = useAppDispatch();
    const brigadiers = useAppSelector(selectBrigadiers);
 
    const [open, setOpen] = useState<boolean>(false);
@@ -43,10 +40,6 @@ function SalaryAddFormBrigadierCombobox({
       setOpen(false);
    }
 
-   useEffect(() => {
-      dispatch(fetchBrigadiersAsync());
-   }, [dispatch]);
-
    return (
       <Popover open={open} onOpenChange={setOpen}>
          <PopoverTrigger asChild>
@@ -57,16 +50,16 @@ function SalaryAddFormBrigadierCombobox({
                className="justify-between"
             >
                <span className="truncate">
-                  {brigadier ? brigadier.fullname : "Выбрать координатора"}
+                  {brigadier ? brigadier.fullname : "Выбрать бригадира"}
                </span>
                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
          </PopoverTrigger>
          <PopoverContent className="w-52 p-0">
             <Command>
-               <CommandInput placeholder="Искать координатора..." />
+               <CommandInput placeholder="Искать бригадира..." />
                <CommandList>
-                  <CommandEmpty>Координатор не найден</CommandEmpty>
+                  <CommandEmpty>Бригадир не найден</CommandEmpty>
                   <CommandGroup>
                      {brigadiers.map((b) => (
                         <CommandItem

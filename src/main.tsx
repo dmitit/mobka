@@ -5,6 +5,6 @@ import AppProviders from "./app/providers";
 
 createRoot(document.getElementById("root")!).render(
    <React.StrictMode>
-      <AppProviders></AppProviders>,
+      <AppProviders></AppProviders>
    </React.StrictMode>,
 );

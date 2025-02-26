@@ -7,7 +7,7 @@ function PageBrigadiers() {
       <>
          <CoreContainer>
             <div className="py-4">
-               <h1 className="font-medium text-xl my-4">Координаторы</h1>
+               <h1 className="font-medium text-xl my-4">Бригадир</h1>
                <BrigadierAddDrawer />
             </div>
             <div>

@@ -4,6 +4,7 @@ import { Button } from "@/shared/ui/shadcn/button";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { deleteBrigadierAsync } from "../brigadier.slice";
 import { Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
 function BrigadierRow({
    brigadier,
@@ -15,7 +16,16 @@ function BrigadierRow({
    const dispatch = useAppDispatch();
 
    async function handleDeleteBrigadier() {
-      await dispatch(deleteBrigadierAsync(brigadier.id));
+      try {
+         await dispatch(deleteBrigadierAsync(brigadier.id)).unwrap();
+         toast.success("Бригадир удален");
+      } catch (error) {
+         if (typeof error === "string") {
+            toast.error(error);
+         } else {
+            toast.error("Произошла неизвестная ошибка");
+         }
+      }
    }
 
    return (

@@ -1,8 +1,5 @@
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { selectEvents } from "../event.selectors";
-import { useEffect } from "react";
-import { fetchEventsAsync } from "../event.slice";
 import {
    Table,
    TableBody,
@@ -13,12 +10,7 @@ import {
 import EventRow from "./EventRow";
 
 function EventTable() {
-   const dispatch = useAppDispatch();
    const events = useAppSelector(selectEvents);
-
-   useEffect(() => {
-      dispatch(fetchEventsAsync());
-   }, [dispatch]);
 
    return (
       <>

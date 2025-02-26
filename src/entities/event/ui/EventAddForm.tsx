@@ -44,8 +44,6 @@ function EventAddForm() {
          end_datetime: endDatetime.toISOString(),
       };
 
-      console.log(newEvent);
-
       dispatch(createEventAsync(newEvent));
       setOpen(false);
    }
