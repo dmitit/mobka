@@ -17,7 +17,7 @@ export const getSalaries = async (): Promise<Salary[]> => {
 };
 
 export const addSalary = async (salary: SalaryInput): Promise<number> => {
-   return db.salaries.add(salary);
+   return await db.salaries.add(salary);
 };
 
 export const removeSalaryById = async (id: number): Promise<void> => {
