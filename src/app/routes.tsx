@@ -1,4 +1,5 @@
 import MainLayout from "@/MainLayout";
+import PageActivists from "@/pages/PageActivists";
 import PageBrigadiers from "@/pages/PageBrigadiers";
 import PageEvents from "@/pages/PageEvents";
 import PageMain from "@/pages/PageMain";
@@ -16,6 +17,7 @@ export const router = createBrowserRouter(
             { path: "/brigadiers", element: <PageBrigadiers /> },
             { path: "/salaries", element: <PageSalaries /> },
             { path: "/events", element: <PageEvents /> },
+            { path: "/activists", element: <PageActivists /> },
             { path: "*", element: <PageNotFound /> },
          ],
       },

@@ -11,7 +11,7 @@ import {
 } from "@/shared/ui/shadcn/drawer";
 import { Input } from "@/shared/ui/shadcn/input";
 import { useState } from "react";
-import SalaryBrigadiersComboboxForm from "./SalaryAddFormBrigadierCombobox";
+import BrigadiersCombobox from "../../brigadier/ui/BrigadierCombobox";
 import SalaryAddFormDatePicker from "./SalaryAddFormDatePicker";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { createSalaryAsync } from "../salary.slice";
@@ -50,7 +50,7 @@ function SalaryAddForm() {
                <DrawerTitle>Добавить зарплату</DrawerTitle>
                <DrawerDescription />
                <div className="grid grid-cols-2 gap-x-5">
-                  <SalaryBrigadiersComboboxForm
+                  <BrigadiersCombobox
                      brigadier={selectedBrigadier}
                      onSelect={setSelectedBrigadier}
                   />

@@ -1,8 +1,14 @@
-import { Brigadier } from "@/entities/brigadier/brigadier.model";
-import { selectBrigadiers } from "@/entities/brigadier/brigadier.selectors";
-import { cn } from "@/lib/utils";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import { Event } from "../event.model";
+import { selectEvents } from "../event.selectors";
+import { useState } from "react";
+import {
+   Popover,
+   PopoverContent,
+   PopoverTrigger,
+} from "@/shared/ui/shadcn/popover";
 import { Button } from "@/shared/ui/shadcn/button";
+import { Check, ChevronsUpDown } from "lucide-react";
 import {
    Command,
    CommandEmpty,
@@ -11,28 +17,22 @@ import {
    CommandItem,
    CommandList,
 } from "@/shared/ui/shadcn/command";
-import {
-   Popover,
-   PopoverContent,
-   PopoverTrigger,
-} from "@/shared/ui/shadcn/popover";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { useState } from "react";
+import { cn } from "@/lib/utils";
 
-function SalaryAddFormBrigadierCombobox({
+function EventsCombobox({
    onSelect,
-   brigadier,
+   event,
 }: {
-   onSelect: (brigadier: Brigadier) => void;
-   brigadier: Brigadier | null;
+   onSelect: (event: Event) => void;
+   event: Event | null;
 }) {
-   const brigadiers = useAppSelector(selectBrigadiers);
+   const events = useAppSelector(selectEvents);
 
    const [open, setOpen] = useState<boolean>(false);
 
-   function handleBrigadierSelection(value: string) {
+   function handleEventSelection(value: string) {
       const selectedId = Number(value);
-      const selected = brigadiers.find((b) => b.id === selectedId);
+      const selected = events.find((b) => b.id === selectedId);
 
       if (!selected) return;
 
@@ -50,33 +50,33 @@ function SalaryAddFormBrigadierCombobox({
                className="justify-between"
             >
                <span className="truncate">
-                  {brigadier ? brigadier.fullname : "Выбрать бригадира"}
+                  {event ? event.title : "Выбрать мероприятие"}
                </span>
                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
          </PopoverTrigger>
          <PopoverContent className="w-52 p-0">
             <Command>
-               <CommandInput placeholder="Искать бригадира..." />
+               <CommandInput placeholder="Искать мероприятие..." />
                <CommandList>
-                  <CommandEmpty>Бригадир не найден</CommandEmpty>
+                  <CommandEmpty>Мероприятие не найдено</CommandEmpty>
                   <CommandGroup>
-                     {brigadiers.map((b) => (
+                     {events.map((e) => (
                         <CommandItem
-                           key={b.id}
-                           value={b.id.toString()}
-                           keywords={[b.fullname]}
-                           onSelect={handleBrigadierSelection}
+                           key={e.id}
+                           value={e.id.toString()}
+                           keywords={[e.title]}
+                           onSelect={handleEventSelection}
                         >
                            <Check
                               className={cn(
                                  "mr-2 h-4 w-4",
-                                 brigadier?.id === b.id
+                                 event?.id === e.id
                                     ? "opacity-100"
                                     : "opacity-0",
                               )}
                            />
-                           {b.fullname}
+                           {e.title}
                         </CommandItem>
                      ))}
                   </CommandGroup>
@@ -87,4 +87,4 @@ function SalaryAddFormBrigadierCombobox({
    );
 }
 
-export default SalaryAddFormBrigadierCombobox;
+export default EventsCombobox;
