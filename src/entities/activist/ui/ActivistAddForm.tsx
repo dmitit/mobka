@@ -19,7 +19,7 @@ import { Input } from "@/shared/ui/shadcn/input";
 import { Label } from "@/shared/ui/shadcn/label";
 import { Textarea } from "@/shared/ui/shadcn/textarea";
 import BrigadierCombobox from "@/entities/brigadier/ui/BrigadierCombobox";
-import EventCombobox from "@/entities/event/ui/EventsCombobox";
+import EventCombobox from "@/entities/event/ui/EventCombobox";
 
 function ActitivstAddForm() {
    const dispatch = useAppDispatch();
