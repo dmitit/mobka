@@ -33,21 +33,23 @@ function PersonAddForm() {
    const [fakeVk, setFakeVk] = useState<string>("");
 
    function handleAddPerson() {
-      const mockPerson: PersonInput = {
-         fullname: "Nikita Dmitriev",
-         description: "test",
-         birth_date: "hz",
-         phone: "4291428",
-         telegram: "@checkker",
+      if (!fullname) return;
+
+      const newPerson: PersonInput = {
+         fullname: fullname,
+         description: description,
+         birth_date: birthDate ? birthDate.toISOString() : null,
+         phone: phone,
+         telegram: telegram,
          socials: {
-            ok: "https://ok.ru",
-            vk: "https://vk.ru",
-            phone: "9244289",
-            telegram: "@fake",
+            ok: fakeOk,
+            vk: fakeVk,
+            phone: fakePhone,
+            telegram: fakeTelegram,
          },
       };
 
-      dispatch(createPersonAsync(mockPerson));
+      dispatch(createPersonAsync(newPerson));
       setOpen(false);
    }
 
