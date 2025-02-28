@@ -1,4 +1,4 @@
-import { Activist } from "./activist.model";
+import { Activist } from "./quota.model";
 
 export interface ActivistTable {
    id: number;

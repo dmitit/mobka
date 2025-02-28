@@ -12,11 +12,11 @@ import {
 import { Input } from "@/shared/ui/shadcn/input";
 import { useState } from "react";
 import BrigadiersCombobox from "../../brigadier/ui/BrigadierCombobox";
-import SalaryAddFormDatePicker from "./SalaryAddFormDatePicker";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { createSalaryAsync } from "../salary.slice";
 import { SalaryInput } from "../salary.types";
 import { Brigadier } from "@/entities/brigadier/brigadier.model";
+import InputDatePicker from "@/shared/ui/InputDatePicker";
 
 function SalaryAddForm() {
    const [open, setOpen] = useState<boolean>(false);
@@ -54,7 +54,7 @@ function SalaryAddForm() {
                      brigadier={selectedBrigadier}
                      onSelect={setSelectedBrigadier}
                   />
-                  <SalaryAddFormDatePicker
+                  <InputDatePicker
                      date={selectedDate}
                      onSelect={setSelectedDate}
                   />

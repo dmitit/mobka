@@ -26,10 +26,8 @@ function SalaryRow({ salary, index }: { salary: Salary; index: number }) {
    return (
       <TableRow className="hover:bg-gray-100">
          <TableCell>{index + 1}</TableCell>
-         <TableCell className="w-auto">
-            {format(salary.date, "d.L.y")}
-         </TableCell>
-         <TableCell>{salary.brigadier?.fullname}</TableCell>
+         <TableCell>{format(salary.date, "d.L.y")}</TableCell>
+         <TableCell className="w-full">{salary.brigadier?.fullname}</TableCell>
          <TableCell>{salary.amount}</TableCell>
          <TableCell>
             <Button

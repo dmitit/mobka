@@ -1,9 +1,9 @@
 import { Brigadier } from "@/entities/brigadier/brigadier.model";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useState } from "react";
-import { ActivistInput } from "../activist.types";
+import { ActivistInput } from "../quota.types";
 import { Event } from "@/entities/event/event.model";
-import { createActivistAsync } from "../activist.slice";
+import { createActivistAsync } from "../quota.slice";
 import {
    Drawer,
    DrawerClose,

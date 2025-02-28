@@ -61,11 +61,11 @@ function CoreHeader() {
                            >
                               Зарплаты
                            </Link>
-                           <Link
-                              to="/activists"
-                              onClick={() => setIsOpen(false)}
-                           >
-                              Активисты
+                           <Link to="/persons" onClick={() => setIsOpen(false)}>
+                              Общая база
+                           </Link>
+                           <Link to="/quotas" onClick={() => setIsOpen(false)}>
+                              Квоты
                            </Link>
                         </nav>
                      </SheetContent>

@@ -11,6 +11,7 @@ import SalaryRow from "./SalaryRow";
 
 function SalaryTable() {
    const salaries = useAppSelector(selectSalaries);
+   console.log(salaries);
 
    return (
       <>

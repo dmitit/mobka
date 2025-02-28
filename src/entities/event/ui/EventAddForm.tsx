@@ -16,7 +16,7 @@ import { createEventAsync } from "../event.slice";
 import { Input } from "@/shared/ui/shadcn/input";
 import { Label } from "@/shared/ui/shadcn/label";
 import { Textarea } from "@/shared/ui/shadcn/textarea";
-import EventAddFormDateTimePicker from "./EventAddFormDateTimePicker";
+import InputDatetimePicker from "@/shared/ui/InputDatetimePicker";
 
 function EventAddForm() {
    const dispatch = useAppDispatch();
@@ -82,14 +82,14 @@ function EventAddForm() {
                   <div className="grid grid-cols-2 gap-x-5">
                      <div className="text-start grid w-full gap-1.5">
                         <Label htmlFor="event-quota">Время начала*</Label>
-                        <EventAddFormDateTimePicker
+                        <InputDatetimePicker
                            date={startDatetime}
                            onSelect={setStartDatetime}
                         />
                      </div>
                      <div className="text-start grid w-full gap-1.5">
                         <Label htmlFor="event-quota">Время окончания*</Label>
-                        <EventAddFormDateTimePicker
+                        <InputDatetimePicker
                            date={endDatetime}
                            onSelect={setEndDatetime}
                         />

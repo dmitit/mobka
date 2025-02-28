@@ -1,16 +1,13 @@
-import { cn } from "@/lib/utils";
-import { Button } from "@/shared/ui/shadcn/button";
-import {
-   Popover,
-   PopoverContent,
-   PopoverTrigger,
-} from "@/shared/ui/shadcn/popover";
-import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "./shadcn/popover";
+import { Button } from "./shadcn/button";
+import { cn } from "@/lib/utils";
+import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
-import { Calendar } from "@/shared/ui/shadcn/calendar";
+import { Calendar } from "./shadcn/calendar";
+import { ru } from "date-fns/locale";
 
-function SalaryAddFormDatePicker({
+function InputDatePicker({
    date,
    onSelect,
 }: {
@@ -35,7 +32,11 @@ function SalaryAddFormDatePicker({
                )}
             >
                <CalendarIcon />
-               {date ? format(date, "PPP") : <span>Pick a date</span>}
+               {date ? (
+                  format(date, "dd.MM.yyyy", { locale: ru })
+               ) : (
+                  <span>Выбрать дату</span>
+               )}
             </Button>
          </PopoverTrigger>
          <PopoverContent className="w-auto p-0" align="start">
@@ -49,4 +50,4 @@ function SalaryAddFormDatePicker({
    );
 }
 
-export default SalaryAddFormDatePicker;
+export default InputDatePicker;
