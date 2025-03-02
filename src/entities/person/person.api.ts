@@ -7,6 +7,7 @@ export const getPersons = async (): Promise<Person[]> => {
 };
 
 export const addPerson = async (person: PersonInput): Promise<number> => {
+   console.log(person);
    return await db.persons.add(person);
 };
 

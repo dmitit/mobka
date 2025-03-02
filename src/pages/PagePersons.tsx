@@ -1,4 +1,4 @@
-import PersonAddForm from "@/entities/person/ui/PersonAddForm";
+import PersonAddDrawer from "@/entities/person/ui/PersonAddDrawer";
 import CoreContainer from "@/shared/ui/CoreContainer";
 
 function PagePersons() {
@@ -7,7 +7,7 @@ function PagePersons() {
          <CoreContainer>
             <div className="py-4">
                <h1 className="font-medium text-xl my-4">Общая база</h1>
-               <PersonAddForm />
+               <PersonAddDrawer />
             </div>
             <div>{/* <ActivistTable /> */}</div>
          </CoreContainer>

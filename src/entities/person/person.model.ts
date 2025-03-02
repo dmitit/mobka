@@ -1,11 +1,14 @@
-import { Socials } from "./person.types";
-
 export interface Person {
    id: number;
    fullname: string;
-   description: string | null;
-   birth_date: string | null;
-   phone: string | null;
-   telegram: string | null;
-   socials: Socials;
+   description: string;
+   birth_date?: Date;
+   phone: string;
+   telegram: string;
+   socials: {
+      vk: string;
+      ok: string;
+      telegram: string;
+      phone: string;
+   };
 }

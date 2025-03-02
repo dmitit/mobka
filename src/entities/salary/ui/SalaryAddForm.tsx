@@ -16,7 +16,6 @@ import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { createSalaryAsync } from "../salary.slice";
 import { SalaryInput } from "../salary.types";
 import { Brigadier } from "@/entities/brigadier/brigadier.model";
-import InputDatePicker from "@/shared/ui/InputDatePicker";
 
 function SalaryAddForm() {
    const [open, setOpen] = useState<boolean>(false);
@@ -54,10 +53,10 @@ function SalaryAddForm() {
                      brigadier={selectedBrigadier}
                      onSelect={setSelectedBrigadier}
                   />
-                  <InputDatePicker
+                  {/* <InputDatePicker
                      date={selectedDate}
                      onSelect={setSelectedDate}
-                  />
+                  /> */}
                </div>
                <Input
                   className="mt-2"
