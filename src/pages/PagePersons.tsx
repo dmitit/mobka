@@ -1,4 +1,5 @@
 import PersonAddDrawer from "@/entities/person/ui/PersonAddDrawer";
+import PersonTable from "@/entities/person/ui/PersonTable";
 import CoreContainer from "@/shared/ui/CoreContainer";
 
 function PagePersons() {
@@ -9,7 +10,9 @@ function PagePersons() {
                <h1 className="font-medium text-xl my-4">Общая база</h1>
                <PersonAddDrawer />
             </div>
-            <div>{/* <ActivistTable /> */}</div>
+            <div>
+               <PersonTable />
+            </div>
          </CoreContainer>
       </>
    );

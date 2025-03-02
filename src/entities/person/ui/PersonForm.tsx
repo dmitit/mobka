@@ -30,7 +30,7 @@ export default function PersonForm({
       defaultValues: initialPerson || {
          fullname: "",
          description: "",
-         birth_date: undefined,
+         birth_date: null,
          phone: "",
          telegram: "",
          socials: {

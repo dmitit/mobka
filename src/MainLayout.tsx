@@ -8,6 +8,7 @@ import { fetchSalariesAsync } from "./entities/salary/salary.slice";
 import { fetchBrigadiersAsync } from "./entities/brigadier/brigadier.slice";
 import { fetchEventsAsync } from "./entities/event/event.slice";
 import { LoaderCircle } from "lucide-react";
+import { fetchPersonsAsync } from "./entities/person/person.slice";
 // import { fetchActivistsAsync } from "./entities/activist/activist.slice";
 
 function MainLayout() {
@@ -20,6 +21,7 @@ function MainLayout() {
             await dispatch(fetchSalariesAsync()).unwrap();
             await dispatch(fetchBrigadiersAsync()).unwrap();
             await dispatch(fetchEventsAsync()).unwrap();
+            await dispatch(fetchPersonsAsync()).unwrap();
             // await dispatch(fetchActivistsAsync()).unwrap();
          } finally {
             setLoading(false);

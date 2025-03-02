@@ -8,7 +8,8 @@ export const personSchema = z.object({
       .date()
       .min(new Date("1900-01-01"), "Дата не может быть раньше 1900 года")
       .max(new Date("2099-12-31"), "Дата не может быть позже 2099 года")
-      .optional(),
+      .optional()
+      .transform((date) => (date ? date.toISOString() : null)),
    phone: z.string(),
    telegram: z.string(),
    socials: z.object({
@@ -25,7 +26,7 @@ export interface PersonTable {
    id: number;
    fullname: string;
    description: string;
-   birth_date?: Date;
+   birth_date: string | null;
    phone: string;
    telegram: string;
    socials: {

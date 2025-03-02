@@ -2,7 +2,7 @@ export interface Person {
    id: number;
    fullname: string;
    description: string;
-   birth_date?: Date;
+   birth_date: string | null;
    phone: string;
    telegram: string;
    socials: {
